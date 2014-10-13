@@ -16,6 +16,8 @@
   <script src="../js/jquery/1.11.1.jquery.min.js"></script>
   <!--datetimepicker js-->
   <script src="../js/jquery/jquery.datetimepicker.js"></script>
+  <!--jquery validate js-->
+  <script src="../js/jquery/jquery.validate.js"></script>
 
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -31,6 +33,7 @@
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="../js/bootstrap/ie10-viewport-bug-workaround.js"></script>
   <!--hsq-->
+  <script type="text/javascript" src="../js/hsq/create_method.js"></script>
   <script src="../js/hsq/create.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -103,68 +106,93 @@
           <hr>
           <div id="baseinfoform">
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动名称:</label>
+              <label for="name" class="col-lg-2 control-label">活动名称:</label>
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="email" placeholder="活动名称">
+                <input type="text" class="form-control" id="name" placeholder="活动名称">
               </div>
             </div>
             <div class="form-group">
               <label for="event_time" class="col-lg-2 control-label">活动时间:</label>
-              <div class="col-lg-10">
-                  <p inline-block>
-                    <input type="start_time" class="form-control col-lg-6" id="start_time" placeholder="开始时间">
-                  ----
-                  <input type="end_time"   class="form-control col-lg-6" id="end_time" placeholder="结束时间">
+              <div class="col-lg-10 form-inline" id="event_time">
 
-                  </p>
-                                  
-                
+                <input type="text" class="form-control col-lg-3" id="start_time" placeholder="开始时间">              
+                <input type="text"   class="form-control col-lg-3" id="end_time" placeholder="结束时间"></div>
+            </div>
+            <div class="form-group">
+              <label for="area" class="col-lg-2 control-label">活动地点:</label>
+              <div class="col-lg-10 form-inline" id ="area">
+                 
+                           
+                <select class="col-lg-1" id="province_select">
+                  <option value="0">--省--</option>
+                  <!--option>北京</option>
+                  <option>天津</option>
+                  <option>广东省</option>
+                  <option>广西省</option>
+                  <option>河北省</option-->
+                </select>
+                <span>&nbsp;&nbsp;</span>
+                <select class="col-lg-1">
+                  <option value="0">--市--</option>
+                  <!--option>广州市</option>
+                  <option>罗定市</option>
+                  <option>深圳市</option>
+                  <option>茂名市</option>
+                  <option>肇庆市</option-->
+                </select>
+                <span>&nbsp;&nbsp;</span>
+                <select class="col-lg-1">
+                  <option value="0">--区--</option>
+                  <!--option>天河区</option>
+                  <option>越秀区</option>
+                  <option>海珠区</option>
+                  <option>白云区</option>
+                  <option>荔湾区</option-->
+                </select>
+
+                <input type="hidden" id="province" name="province">
+                <input type="hidden" id="city" name="city">
+                <input type="hidden" id="district" name="district">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动地点:</label>
+              <label for="address_detail" class="col-lg-2 control-label">活动详细地址:</label>
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="email" placeholder="活动地点">
+                <input type="text" class="form-control" id="address_detail" placeholder="活动详细地址">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动详细地址:</label>
-              <div class="col-lg-10">
-                <input type="email" class="form-control" id="email" placeholder="活动详细地址">
+              <label for="haibaos" class="col-lg-2 control-label">活动海报:</label>
+              <div class="col-lg-10" id="haibaos">
+                <input type="file" class="form-control" id="haibao1" name="file1">
+                <input type="file" class="form-control" id="haibao2" name="file2">
+                <input type="file" class="form-control" id="haibao3" name="file3">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动海报:</label>
+              <label for="sponsor" class="col-lg-2 control-label">活动主办方:</label>
               <div class="col-lg-10">
-                <input type="file" class="form-control" id="haibao" name="file1" value="海报1">
-                <input type="file" class="form-control" id="haibao" name="file1">
-                <input type="file" class="form-control" id="haibao" name="file1">
+                <input type="text" class="form-control" id="sponsor" placeholder="活动主办方">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动主办方:</label>
+              <label for="phone" class="col-lg-2 control-label">咨询电话:</label>
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="email" placeholder="活动主办方">
+                <input type="text" class="form-control" id="phone" placeholder="咨询电话">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">咨询电话:</label>
+              <label for="description" class="col-lg-2 control-label">活动简介:</label>
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="email" placeholder="咨询电话">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动简介:</label>
-              <div class="col-lg-10">
-                <textarea class="form-control" id="email" placeholder="活动简介">
+                <textarea class="form-control" id="description" name="description" placeholder="活动简介">
                   
                 </textarea>
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-2 control-label">活动详情:</label>
+              <label for="detail" class="col-lg-2 control-label">活动详情:</label>
               <div class="col-lg-10">
-                <textarea class="form-control" id="email" placeholder="活动详情" rows = "5">
+                <textarea class="form-control" id="detail" name ="detail" placeholder="活动详情" rows = "5">
                   
                 </textarea>
               </div>
